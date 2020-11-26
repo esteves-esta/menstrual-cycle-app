@@ -7,14 +7,14 @@
   - botao para finalizar ciclo - vai para tela para escolher dia
   - apos começar ciclo ao invez de mostrar car com o proximo ciclo mostrar quantos dias esta no ciclo atual
   
- - segunda tela
+- segunda tela
   - calendario com bolinha vermelhas indicado ciclos
   - poder cliquar no dia e adicionar se houver algun discomforto
   - clicar no dia e ver disconforto adicionado
   
- - terceira tela
+- terceira tela
   - configurações - mudar cor do app
   - exportar dados para xml/json ?
   - importar dados ?
   
- - react / android ?
+- react / android ?
