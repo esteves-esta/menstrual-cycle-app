@@ -1,12 +1,12 @@
 import { applyMiddleware, createStore, Reducer, Middleware } from 'redux';
-import { AuthState } from './modules/auth/types';
-import { AuthAction } from './modules/auth/actions';
+import { PeriodState } from './modules/period/types';
+import { PeriodAction } from './modules/period/actions';
 
 export interface StoreState {
-  auth: AuthState;
+  period: PeriodState;
 }
 
-export type StoreAction = AuthAction;
+export type StoreAction = PeriodAction;
 
 export default (
   reducers: Reducer<StoreState, StoreAction>,

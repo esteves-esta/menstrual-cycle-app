@@ -1,7 +1,7 @@
 import { combineReducers } from 'redux';
 import { StoreState } from '../createStore';
-import auth from './auth/reducer';
+import period from './period/reducer';
 
 export default combineReducers<StoreState>({
-  auth,
+  period,
 });
