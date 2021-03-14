@@ -24,6 +24,7 @@ module.exports = {
           services: ['./src/services'],
           schemas: ['./src/schemas'],
           constants: ['./src/constants'],
+          models: ['./src/models'],
         },
       },
     ],

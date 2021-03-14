@@ -21,6 +21,7 @@ export interface PeriodState {
   readonly loading: boolean;
   readonly period: PeriodSchema[] | undefined;
   readonly error: boolean;
+  readonly success: boolean;
 }
 
 export default Types;

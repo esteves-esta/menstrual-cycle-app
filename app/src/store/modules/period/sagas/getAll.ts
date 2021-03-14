@@ -7,16 +7,17 @@ export function* getAll() {
   try {
     const realm: Realm = yield getRealm();
     let tasks;
-    realm.write(() => {
-      tasks = realm.objects('Period');
 
+    yield realm.write(() => {
+      tasks = realm.objects('Period');
       if (tasks.length === 0) {
         tasks = undefined;
       }
       // realm.deleteAll();
     });
-    realm.close();
+
     yield put(actions.getPeriodsSuccess(tasks));
+    realm.close();
   } catch (error) {
     console.log('REALM DB ERROR');
     console.log(error);

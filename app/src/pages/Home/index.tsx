@@ -33,32 +33,27 @@ const Home: React.FC = () => {
     navigation.navigate('AddCycles');
   }
 
-  function render() {
-    if (period === undefined) {
-      return (
-        <>
-          <Button mode="contained" onPress={goToAddCycles}>
-            Adicione últimos ciclos
-          </Button>
-          <Button mode="contained">Importar dados XML</Button>
-        </>
-      );
-    } else {
-      <>
-        <Title fontColor={titleColor}>Seu próximo ciclo</Title>
-        <Title fontColor={titleColor}>se inicia no </Title>
-        <Title fontColor={titleColor}>dia 20 de Janeiro</Title>
-        <Subtitle fontColor={fontColor}>Em 20 dias</Subtitle>
-        <Button mode="contained">Começar</Button>
-      </>;
-    }
-  }
-
   return (
     <ScrollView>
       <Center bg={bgColor}>
         <Overline fontColor={fontColor}>Hoje é dia {today}</Overline>
-        {!loading && render()}
+        {!loading && period === undefined && (
+          <>
+            <Button mode="contained" onPress={goToAddCycles}>
+              Adicione últimos ciclos
+            </Button>
+            <Button mode="contained">Importar dados XML</Button>
+          </>
+        )}
+        {!loading && period !== undefined && (
+          <>
+            <Title fontColor={titleColor}>Seu próximo ciclo</Title>
+            <Title fontColor={titleColor}>se inicia no </Title>
+            <Title fontColor={titleColor}>dia 20 de Janeiro</Title>
+            <Subtitle fontColor={fontColor}>Em 20 dias</Subtitle>
+            <Button mode="contained">Começar</Button>
+          </>
+        )}
       </Center>
     </ScrollView>
   );

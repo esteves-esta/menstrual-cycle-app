@@ -1,6 +1,7 @@
 import { ActionType, action } from 'typesafe-actions';
 import Types from './types';
 import PeriodSchema from 'schemas/PeriodSchema';
+import FormValues from 'models/OldPeriods';
 
 export function getPeriods() {
   return action(Types.GET_PERIODS);
@@ -14,7 +15,7 @@ export function getPeriodsError() {
   return action(Types.GET_PERIODS_ERROR);
 }
 
-export function setOldPeriods(periods: PeriodSchema[]) {
+export function setOldPeriods(periods: FormValues) {
   return action(Types.SET_OLD_PERIODS, { periods });
 }
 

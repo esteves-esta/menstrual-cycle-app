@@ -1,6 +1,5 @@
 import styled, { css } from 'styled-components/native';
-import { Title as PaperTitle, Subheading, Text } from 'react-native-paper';
-import { baseProps } from 'react-native-gesture-handler/lib/typescript/handlers/gestureHandlers';
+import { Title as PaperTitle, Subheading } from 'react-native-paper';
 import Color from 'color';
 
 interface ContainerProps {
@@ -27,7 +26,7 @@ export const Subtitle = styled(Subheading)<TextProps>`
   text-transform: uppercase;
   ${({ theme }) => theme.fonts.medium};
   letter-spacing: 1px;
-  /* margin-bottom: 10px; */
+  margin-top: 15px;
   font-size: 18px;
   ${(props) =>
     props.fontColor &&
@@ -41,14 +40,6 @@ export const Overline = styled(Subtitle)<TextProps>`
   font-size: 14px;
 `;
 
-export const Label = styled(Text)`
-  ${({ theme }) => theme.fonts.medium};
-  color: ${({ theme }) => Color(theme.colors.primary).darken(0.1).hex()};
-  font-size: 15px;
-  letter-spacing: 0.8px;
-  margin: 10px 0px;
-`;
-
 export const Container = styled.View<ContainerProps>`
   padding: 35px;
   flex: 1;
@@ -60,8 +51,14 @@ export const Container = styled.View<ContainerProps>`
     `};
 `;
 
+export const Row = styled.View`
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+`;
+
 export const Scrollview = styled.ScrollView.attrs({
-  contentContainerStyle: { marginBottom: 50, flex: 1 },
+  contentContainerStyle: { paddingBottom: 50 },
 })`
   flex: 1;
 `;
