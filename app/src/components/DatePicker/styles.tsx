@@ -29,8 +29,7 @@ export const Input = styled.View`
 `;
 
 export const InputText = styled(Paragraph)`
-  color: ${({ theme }) =>
-    Color(theme.colors.primary).darken(0.1).rgb().string()};
+  color: ${({ theme }) => theme.colors.accent};
   font-size: 16px;
   letter-spacing: 1.8px;
 
@@ -39,7 +38,7 @@ export const InputText = styled(Paragraph)`
 
 export const Label = styled(Paragraph)`
   ${({ theme }) => theme.fonts.regular};
-  color: ${({ theme }) => Color(theme.colors.primary).darken(0.1).hex()};
+  color: ${({ theme }) => Color(theme.colors.accent).darken(0.1).hex()};
   font-size: 14px;
   letter-spacing: 0.8px;
   text-transform: uppercase;

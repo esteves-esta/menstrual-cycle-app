@@ -5,7 +5,7 @@ import { useTheme } from 'react-native-paper';
 import { format, differenceInCalendarDays } from 'date-fns';
 import { ptBR } from 'date-fns/locale';
 import Color from 'color';
-
+import { getUTCDate } from 'helpers/index';
 import { useDispatch, useSelector } from 'store/index';
 import * as actions from 'store/modules/get/actions';
 import Button from 'components/Button';
@@ -16,11 +16,13 @@ const Home: React.FC = () => {
   const { colors } = useTheme();
   const dispatch = useDispatch();
   const navigation = useNavigation();
-  const { period, loading, nextPeriod } = useSelector((state) => state.period);
+  const { period, loading, nextPeriod, periodOngoing } = useSelector(
+    (state) => state.period,
+  );
 
-  const bgColor = Color(colors.primary).darken(0).hex();
-  const fontColor = Color(colors.primary).lighten(0.5).hex();
-  const titleColor = Color(colors.primary).lighten(1).hex();
+  useEffect(() => {
+    dispatch(actions.getPeriods());
+  }, []);
 
   const today = format(new Date(), "dd 'de' MMMM", {
     locale: ptBR,
@@ -46,23 +48,26 @@ const Home: React.FC = () => {
     }
   };
 
-  const getUTCDate = (date = new Date()) => {
-    return new Date(
-      date.getUTCFullYear(),
-      date.getUTCMonth(),
-      date.getUTCDate(),
-      date.getUTCHours(),
-      date.getUTCMinutes(),
-      date.getUTCSeconds(),
-    );
+  const durationOfOngoingPeriod = () => {
+    if (periodOngoing) {
+      const date = getUTCDate(periodOngoing);
+      return differenceInCalendarDays(new Date(), date);
+    } else {
+      return 0;
+    }
   };
 
-  useEffect(() => {
-    dispatch(actions.getPeriods());
-  }, []);
+  const daysOfOngoingPeriod = durationOfOngoingPeriod() / 10;
+  const bgColor = Color(colors.primary).darken(daysOfOngoingPeriod).hex();
+  const fontColor = Color(colors.primary).lighten(0.5).hex();
+  const titleColor = Color(colors.primary).lighten(1).hex();
 
   function goToAddCycles() {
     navigation.navigate('AddCycles');
+  }
+
+  function goToSetCycle() {
+    navigation.navigate('SetCycle');
   }
 
   return (
@@ -78,7 +83,22 @@ const Home: React.FC = () => {
           </>
         )}
 
-        {!loading && period !== undefined && (
+        {!loading && periodOngoing !== undefined && (
+          <>
+            <Title fontColor={titleColor}>
+              Esse é o {durationOfOngoingPeriod()}º da sua menstruação
+            </Title>
+
+            <Button mode="contained" onPress={goToSetCycle}>
+              Adicionar sintomas
+            </Button>
+            <Button mode="contained" onPress={goToSetCycle}>
+              Finalizar
+            </Button>
+          </>
+        )}
+
+        {!loading && nextPeriod !== undefined && (
           <>
             <Title fontColor={titleColor}>Seu próximo ciclo</Title>
             <Title fontColor={titleColor}>se inicia no </Title>
@@ -86,7 +106,9 @@ const Home: React.FC = () => {
             <Subtitle fontColor={fontColor}>
               Em {daysTillPeriod()} dias
             </Subtitle>
-            <Button mode="contained">Começar</Button>
+            <Button mode="contained" onPress={goToSetCycle}>
+              Começar
+            </Button>
           </>
         )}
       </Center>

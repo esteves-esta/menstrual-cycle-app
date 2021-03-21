@@ -10,6 +10,7 @@ import Home from 'pages/Home';
 import AddCycles from 'pages/AddCycles';
 import Analysis from 'pages/Analysis';
 import Config from 'pages/Config';
+import SetCycle from 'pages/SetCycle';
 
 const Tab = createBottomTabNavigator();
 const Stack = createStackNavigator();
@@ -74,6 +75,7 @@ export function MyStack() {
     <Stack.Navigator headerMode="none">
       <Stack.Screen name="Home" component={MyTabs} />
       <Stack.Screen name="AddCycles" component={AddCycles} />
+      <Stack.Screen name="SetCycle" component={SetCycle} />
     </Stack.Navigator>
   );
 }

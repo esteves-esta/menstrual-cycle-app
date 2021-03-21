@@ -13,7 +13,7 @@ export function* setOldPeriod({
     const { last, secondlastPeriod } = periods;
 
     const periodLast = {
-      id: 1,
+      id: 2,
       start: last.start,
       end: last.end,
       days: differenceInCalendarDays(last.end, last.start),
@@ -24,7 +24,7 @@ export function* setOldPeriod({
     };
 
     const periodSecondLast = {
-      id: 2,
+      id: 1,
       start: secondlastPeriod.start,
       end: secondlastPeriod.end,
       days: differenceInCalendarDays(
@@ -37,13 +37,12 @@ export function* setOldPeriod({
       ),
     };
 
-    realm.write(() => {
+    yield realm.write(() => {
       realm.create('Period', periodLast);
       realm.create('Period', periodSecondLast);
     });
 
     realm.close();
-
     yield put(actions.setOldPeriodsSuccess());
   } catch (error) {
     console.log('REALM DB ERROR');

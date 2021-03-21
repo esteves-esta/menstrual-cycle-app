@@ -1,17 +1,16 @@
-import Types, { PeriodState } from './types';
-import { PeriodAction } from './actions';
+import Types, { SetState } from './types';
+import { SetAction } from './actions';
 
-export const initialState: PeriodState = {
-  loading: true,
+export const initialState: SetState = {
+  loading: false,
   error: false,
-  period: undefined,
   success: false,
 };
 
 export default function auth(
   state = initialState,
-  action: PeriodAction,
-): PeriodState {
+  action: SetAction,
+): SetState {
   switch (action.type) {
     case Types.SET_OLD_PERIODS:
       return {
@@ -60,7 +59,6 @@ export default function auth(
         ...state,
         error: false,
         loading: true,
-
         success: false,
       };
     case Types.SET_END_ERROR:
@@ -97,6 +95,13 @@ export default function auth(
         error: false,
         loading: false,
         success: true,
+      };
+    case Types.CLEAR:
+      return {
+        ...state,
+        error: false,
+        loading: false,
+        success: false,
       };
     default:
       return state;

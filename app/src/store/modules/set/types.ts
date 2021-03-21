@@ -1,5 +1,3 @@
-import PeriodSchema from 'schemas/PeriodSchema';
-
 enum Types {
   SET_OLD_PERIODS = 'PERIOD/SET_OLD_PERIODS',
   SET_OLD_PERIODS_ERROR = 'PERIOD/SET_OLD_PERIODS_ERROR',
@@ -13,10 +11,10 @@ enum Types {
   SET_DAY_SYMPTOMS = 'PERIOD/SET_DAY_SYMPTOMS',
   SET_DAY_SYMPTOMS_ERROR = 'PERIOD/SET_DAY_SYMPTOMS_ERROR',
   SET_DAY_SYMPTOMS_SUCCESS = 'PERIOD/SET_DAY_SYMPTOMS_SUCCESS',
+  CLEAR = 'PERIOD/CLEAR',
 }
-export interface PeriodState {
+export interface SetState {
   readonly loading: boolean;
-  readonly period: PeriodSchema[] | undefined;
   readonly error: boolean;
   readonly success: boolean;
 }

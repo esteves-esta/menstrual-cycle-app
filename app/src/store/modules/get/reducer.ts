@@ -10,6 +10,7 @@ export const initialState: PeriodState = {
   averagePeriodDuration: 0,
   nextPeriod: undefined,
   periodsMarked: {},
+  periodOngoing: undefined,
 };
 
 export default function auth(
@@ -37,9 +38,17 @@ export default function auth(
         period: action.payload.periods,
         error: false,
         loading: false,
-        success: true,
+        success: false,
         ...action.payload,
       };
+    case Types.DELETE_ALL_ERROR:
+      return { ...state, loading: false, error: true };
+
+    case Types.DELETE_ALL_SUCCESS:
+      return { ...initialState, loading: false, success: true };
+
+    case Types.DELETE_ALL:
+      return { ...state, loading: true };
     default:
       return state;
   }

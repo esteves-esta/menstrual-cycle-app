@@ -13,7 +13,8 @@ export function* getAll() {
     let periods;
     let averagePeriodDuration = 0;
     let averageCycleDuration = 0;
-    let nextPeriod = new Date();
+    let nextPeriod: Date | undefined;
+    let periodOngoing: Date | undefined;
     const periodsMarked: PeriodMarked = {};
 
     yield realm.write(() => {
@@ -26,7 +27,11 @@ export function* getAll() {
           (accumulator, item) => accumulator + item.cycleDuration,
           0,
         );
-        averageCycleDuration /= periods.length;
+        let cycles = 0;
+        periods.forEach((item) => {
+          item.cycleDuration > 0 ? cycles++ : null;
+        });
+        averageCycleDuration /= cycles;
 
         averagePeriodDuration = periods?.reduce(
           (accumulator, item) => accumulator + item.days,
@@ -34,8 +39,12 @@ export function* getAll() {
         );
         averagePeriodDuration /= periods.length;
 
-        const lastPeriod = periods.sorted('end', true)[0];
-        nextPeriod = addDays(lastPeriod.start, averageCycleDuration);
+        const lastPeriod = periods.sorted('id', true)[0];
+        if (lastPeriod.end === null) {
+          periodOngoing = lastPeriod.start;
+        } else {
+          nextPeriod = addDays(lastPeriod.start, averageCycleDuration);
+        }
 
         periods.forEach((item) => {
           if (item.end) {
@@ -58,9 +67,9 @@ export function* getAll() {
           }
         });
       }
-      // realm.deleteAll();
     });
 
+    realm.close();
     yield put(
       actions.getPeriodsSuccess({
         averageCycleDuration,
@@ -68,9 +77,9 @@ export function* getAll() {
         periods,
         nextPeriod,
         periodsMarked,
+        periodOngoing,
       }),
     );
-    realm.close();
   } catch (error) {
     console.log('REALM DB ERROR');
     console.log(error);

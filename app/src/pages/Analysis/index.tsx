@@ -19,10 +19,14 @@ const Analysis: React.FC = () => {
   return (
     <Container bg={bgColor}>
       <Overline fontColor={fontColor}>Média de duração do ciclo</Overline>
-      <Title fontColor={titleColor}>{averageCycleDuration} dias</Title>
+      <Title fontColor={titleColor}>
+        {Math.round(averageCycleDuration)} dias
+      </Title>
 
       <Overline fontColor={fontColor}>Média de duração da menstruação</Overline>
-      <Title fontColor={titleColor}>{averagePeriodDuration} dias</Title>
+      <Title fontColor={titleColor}>
+        {Math.round(averagePeriodDuration)} dias
+      </Title>
     </Container>
   );
 };

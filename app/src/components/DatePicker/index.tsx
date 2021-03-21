@@ -52,7 +52,7 @@ const DatePicker = (props: Props) => {
             <Button onPress={() => save(onChange)}>Salvar</Button>
           </Header>
           <Container bg={bgColor}>
-            <Overline fontColor={colors.primary}>
+            <Overline fontColor={colors.accent}>
               Selecione uma data abaixo:
             </Overline>
             <Calendar

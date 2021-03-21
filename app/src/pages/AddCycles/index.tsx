@@ -8,6 +8,7 @@ import { useForm } from 'react-hook-form';
 import Color from 'color';
 import { useDispatch, useSelector } from 'store/index';
 import * as actions from 'store/modules/set/actions';
+import * as getActions from 'store/modules/get/actions';
 import DatePicker from 'components/DatePicker';
 import Button from 'components/Button';
 import { Container, Overline, Row } from 'styles/mainStyles';
@@ -25,7 +26,9 @@ const AddCycles: React.FC = () => {
 
   useEffect(() => {
     if (success) {
-      // navigation.goBack();
+      navigation.goBack();
+      dispatch(getActions.getPeriods());
+      dispatch(actions.clearState());
     }
   }, [success]);
 

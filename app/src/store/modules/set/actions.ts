@@ -1,6 +1,5 @@
 import { ActionType, action } from 'typesafe-actions';
 import Types from './types';
-import PeriodSchema from 'schemas/PeriodSchema';
 import FormValues from 'models/OldPeriods';
 
 export function setOldPeriods(periods: FormValues) {
@@ -15,8 +14,8 @@ export function setOldPeriodsError() {
   return action(Types.SET_OLD_PERIODS_ERROR);
 }
 
-export function setPeriodBegin(period: PeriodSchema) {
-  return action(Types.SET_BEGIN, { period });
+export function setPeriodBegin(start: Date) {
+  return action(Types.SET_BEGIN, { start });
 }
 export function setPeriodBeginSuccess() {
   return action(Types.SET_BEGIN_SUCCESS);
@@ -25,8 +24,8 @@ export function setPeriodBeginSuccess() {
 export function setPeriodBeginError() {
   return action(Types.SET_BEGIN_ERROR);
 }
-export function setPeriodEnd(period: PeriodSchema) {
-  return action(Types.SET_END, { period });
+export function setPeriodEnd(end: Date) {
+  return action(Types.SET_END, { end });
 }
 export function setPeriodEndSuccess() {
   return action(Types.SET_END_SUCCESS);
@@ -46,8 +45,11 @@ export function setDaySymptomsSuccess() {
 export function setDaySymptomsError() {
   return action(Types.SET_DAY_SYMPTOMS_ERROR);
 }
+export function clearState() {
+  return action(Types.CLEAR);
+}
 
-export type PeriodAction = ActionType<
+export type SetAction = ActionType<
   | typeof setOldPeriods
   | typeof setOldPeriodsError
   | typeof setOldPeriodsSuccess
@@ -60,4 +62,5 @@ export type PeriodAction = ActionType<
   | typeof setDaySymptoms
   | typeof setDaySymptomsSuccess
   | typeof setDaySymptomsError
+  | typeof clearState
 >;

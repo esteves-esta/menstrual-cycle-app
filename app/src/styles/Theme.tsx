@@ -43,7 +43,7 @@ export const GreenTheme: ReactNativePaper.Theme = {
   colors: {
     ...PaperDefaultTheme.colors,
     ...NavigationDefaultTheme.colors,
-    primary: '#96BE39',
+    primary: '#bce264',
     accent: '#83ac25',
   },
 };
@@ -64,7 +64,7 @@ export const BlueTheme: ReactNativePaper.Theme = {
     ...PaperDefaultTheme.colors,
     ...NavigationDefaultTheme.colors,
     primary: '#54C0D7',
-    accent: '#319bb3',
+    accent: '#1a8ea8',
   },
 };
 
@@ -74,7 +74,7 @@ export const DarkOrangeTheme: ReactNativePaper.Theme = {
   colors: {
     ...PaperDefaultTheme.colors,
     ...NavigationDefaultTheme.colors,
-    primary: '#F66809',
-    accent: '#d35b0c',
+    primary: '#fc7922',
+    accent: '#c4560d',
   },
 };
