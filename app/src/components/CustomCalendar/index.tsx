@@ -10,6 +10,7 @@ import Icon from 'react-native-vector-icons/Feather';
 interface Props extends CalendarBaseProps {
   bgColor: string;
   markedDates: CalendarMarkingProps;
+  markingType: any;
 }
 
 const CustomCalendar = (props: Props) => {

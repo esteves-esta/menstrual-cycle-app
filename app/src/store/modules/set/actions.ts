@@ -3,18 +3,6 @@ import Types from './types';
 import PeriodSchema from 'schemas/PeriodSchema';
 import FormValues from 'models/OldPeriods';
 
-export function getPeriods() {
-  return action(Types.GET_PERIODS);
-}
-
-export function getPeriodsSuccess(periods: PeriodSchema[] | undefined) {
-  return action(Types.GET_PERIODS_SUCCESS, { periods });
-}
-
-export function getPeriodsError() {
-  return action(Types.GET_PERIODS_ERROR);
-}
-
 export function setOldPeriods(periods: FormValues) {
   return action(Types.SET_OLD_PERIODS, { periods });
 }
@@ -60,9 +48,6 @@ export function setDaySymptomsError() {
 }
 
 export type PeriodAction = ActionType<
-  | typeof getPeriods
-  | typeof getPeriodsSuccess
-  | typeof getPeriodsError
   | typeof setOldPeriods
   | typeof setOldPeriodsError
   | typeof setOldPeriodsSuccess

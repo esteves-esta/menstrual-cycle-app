@@ -8,6 +8,8 @@ import Color from 'color';
 import Calendar from 'pages/Calendar';
 import Home from 'pages/Home';
 import AddCycles from 'pages/AddCycles';
+import Analysis from 'pages/Analysis';
+import Config from 'pages/Config';
 
 const Tab = createBottomTabNavigator();
 const Stack = createStackNavigator();
@@ -32,6 +34,9 @@ export default function MyTabs() {
               break;
             case 'Config':
               iconName = 'settings';
+              break;
+            case 'Analysis':
+              iconName = 'activity';
               break;
             default:
               iconName = 'home';
@@ -58,7 +63,8 @@ export default function MyTabs() {
       }}>
       <Tab.Screen name="Home" component={Home} />
       <Tab.Screen name="Calendar" component={Calendar} />
-      <Tab.Screen name="Config" component={Home} />
+      <Tab.Screen name="Analysis" component={Analysis} />
+      <Tab.Screen name="Config" component={Config} />
     </Tab.Navigator>
   );
 }

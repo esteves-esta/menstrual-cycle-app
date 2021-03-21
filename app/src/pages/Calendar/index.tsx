@@ -2,6 +2,7 @@ import React, { useState } from 'react';
 import { useTheme } from 'react-native-paper';
 import Calendar from 'components/CustomCalendar';
 import Color from 'color';
+import { useDispatch, useSelector } from 'store/index';
 
 import CalendarFooter from 'components/CalendarFooter';
 import { Container, Overline, Scrollview } from 'styles/mainStyles';
@@ -10,6 +11,7 @@ const Calender: React.FC = () => {
   const { colors } = useTheme();
   const [selected, setSelected] = useState('');
   const bgColor = Color(colors.primary).lighten(0.8).hex();
+  const { periodsMarked } = useSelector((state) => state.period);
 
   const onDayPress = (day: any) => {
     setSelected(day.dateString);
@@ -21,21 +23,9 @@ const Calender: React.FC = () => {
         <Container bg={bgColor}>
           <Calendar
             bgColor={bgColor}
+            markingType={'period'}
             markedDates={{
-              //   '2021-03-10': {
-              //     startingDay: true,
-              //     color: colors.primary,
-              //     textColor: colors.white,
-              //   },
-              //   '2021-03-11': {
-              //     color: colors.primary,
-              //     textColor: colors.white,
-              //   },
-              //   '2021-03-12': {
-              //     endingDay: true,
-              //     color: colors.primary,
-              //     textColor: colors.white,
-              //   },
+              ...periodsMarked,
               [selected]: {
                 endingDay: true,
                 color: colors.primary,

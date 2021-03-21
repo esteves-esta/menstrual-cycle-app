@@ -5,6 +5,7 @@ export const initialState: PeriodState = {
   loading: true,
   error: false,
   period: undefined,
+  success: false,
 };
 
 export default function auth(
@@ -12,27 +13,6 @@ export default function auth(
   action: PeriodAction,
 ): PeriodState {
   switch (action.type) {
-    case Types.GET_PERIODS:
-      return {
-        ...state,
-        error: false,
-        loading: true,
-        success: false,
-      };
-    case Types.GET_PERIODS_ERROR:
-      return {
-        ...state,
-        error: true,
-        loading: false,
-        success: false,
-      };
-    case Types.GET_PERIODS_SUCCESS:
-      return {
-        period: action.payload.periods,
-        error: false,
-        loading: false,
-        success: true,
-      };
     case Types.SET_OLD_PERIODS:
       return {
         ...state,

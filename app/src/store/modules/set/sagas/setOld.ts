@@ -44,11 +44,11 @@ export function* setOldPeriod({
 
     realm.close();
 
-    yield put(actions.getPeriodsSuccess([]));
+    yield put(actions.setOldPeriodsSuccess());
   } catch (error) {
     console.log('REALM DB ERROR');
     console.log(error);
-    yield put(actions.getPeriodsError());
+    yield put(actions.setOldPeriodsError());
   }
 }
 

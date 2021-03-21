@@ -25,6 +25,8 @@ module.exports = {
           schemas: ['./src/schemas'],
           constants: ['./src/constants'],
           models: ['./src/models'],
+          helpers: ['./src/helpers'],
+          context: ['./src/context'],
         },
       },
     ],

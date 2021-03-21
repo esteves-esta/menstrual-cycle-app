@@ -7,7 +7,7 @@ import { useForm } from 'react-hook-form';
 
 import Color from 'color';
 import { useDispatch, useSelector } from 'store/index';
-import * as actions from 'store/modules/period/actions';
+import * as actions from 'store/modules/set/actions';
 import DatePicker from 'components/DatePicker';
 import Button from 'components/Button';
 import { Container, Overline, Row } from 'styles/mainStyles';

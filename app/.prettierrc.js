@@ -4,5 +4,5 @@ module.exports = {
   singleQuote: true,
   bracketSpacing: true,
   jsxBracketSameLine: true,
-  endOfLine: 'auto',
+  // endOfLine: 'auto',
 };

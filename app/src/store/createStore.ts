@@ -1,6 +1,6 @@
 import { applyMiddleware, createStore, Reducer, Middleware } from 'redux';
-import { PeriodState } from './modules/period/types';
-import { PeriodAction } from './modules/period/actions';
+import { PeriodState } from './modules/get/types';
+import { PeriodAction } from './modules/get/actions';
 
 export interface StoreState {
   period: PeriodState;
