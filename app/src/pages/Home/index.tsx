@@ -9,6 +9,7 @@ import { getUTCDate } from 'helpers/index';
 import { useDispatch, useSelector } from 'store/index';
 import * as actions from 'store/modules/get/actions';
 import Button from 'components/Button';
+import Modal from 'components/ModalError';
 import { Title, Subtitle, Overline } from 'styles/mainStyles';
 import { Center, ScrollView } from './styles';
 
@@ -16,7 +17,7 @@ const Home: React.FC = () => {
   const { colors } = useTheme();
   const dispatch = useDispatch();
   const navigation = useNavigation();
-  const { period, loading, nextPeriod, periodOngoing } = useSelector(
+  const { period, loading, error, nextPeriod, periodOngoing } = useSelector(
     (state) => state.period,
   );
 
@@ -59,6 +60,7 @@ const Home: React.FC = () => {
 
   const daysOfOngoingPeriod = durationOfOngoingPeriod() / 10;
   const bgColor = Color(colors.primary).darken(daysOfOngoingPeriod).hex();
+
   function goToAddCycles() {
     navigation.navigate('AddCycles');
   }
@@ -66,8 +68,13 @@ const Home: React.FC = () => {
   function goToSetCycle() {
     navigation.navigate('SetCycle');
   }
+
   function goToAddDisconfort() {
     navigation.navigate('AddDisconfort');
+  }
+
+  function closeModal() {
+    dispatch(actions.clear());
   }
 
   return (
@@ -111,6 +118,8 @@ const Home: React.FC = () => {
             </Button>
           </>
         )}
+
+        <Modal errorMessage={error} close={closeModal} />
       </Center>
     </ScrollView>
   );

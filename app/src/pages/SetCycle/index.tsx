@@ -1,5 +1,4 @@
-/* eslint-disable react-hooks/exhaustive-deps */
-import React, { useEffect } from 'react';
+import React from 'react';
 import { useNavigation } from '@react-navigation/native';
 import { useTheme, IconButton, Paragraph } from 'react-native-paper';
 import { useForm } from 'react-hook-form';
@@ -12,6 +11,8 @@ import DatePicker from 'components/DatePicker';
 import Button from 'components/Button';
 import { Container, Overline, Row } from 'styles/mainStyles';
 import { Header } from './styles';
+import Modal from 'components/ModalError';
+import ModalSuccess from 'components/ModalSuccess';
 
 const SetCycle: React.FC = () => {
   const { colors } = useTheme();
@@ -20,16 +21,8 @@ const SetCycle: React.FC = () => {
   const today = new Date();
 
   const { periodOngoing } = useSelector((state) => state.period);
-  const { loading, success } = useSelector((state) => state.setPeriod);
+  const { loading, success, error } = useSelector((state) => state.setPeriod);
   const { control, handleSubmit } = useForm();
-
-  useEffect(() => {
-    if (success) {
-      navigation.goBack();
-      dispatch(getActions.getPeriods());
-      dispatch(actions.clearState());
-    }
-  }, [success]);
 
   const onSubmit = (data: { start: Date }) => {
     // console.log(data);
@@ -41,6 +34,16 @@ const SetCycle: React.FC = () => {
   };
 
   const bgColor = Color(colors.primary).lighten(0.4).hex();
+
+  function closeModal() {
+    dispatch(actions.clearState());
+  }
+
+  function closeModalSuccess() {
+    navigation.goBack();
+    dispatch(getActions.getPeriods());
+    dispatch(actions.clearState());
+  }
 
   return (
     <Container bg={bgColor}>
@@ -75,6 +78,13 @@ const SetCycle: React.FC = () => {
         onPress={handleSubmit(onSubmit)}>
         Salvar
       </Button>
+
+      <Modal errorMessage={error} close={closeModalSuccess} />
+      <ModalSuccess
+        success={success}
+        message="Dados cadastrados com sucesso"
+        close={closeModal}
+      />
     </Container>
   );
 };

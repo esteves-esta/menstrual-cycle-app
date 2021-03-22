@@ -10,8 +10,8 @@ export function setOldPeriodsSuccess() {
   return action(Types.SET_OLD_PERIODS_SUCCESS);
 }
 
-export function setOldPeriodsError() {
-  return action(Types.SET_OLD_PERIODS_ERROR);
+export function setOldPeriodsError(error: string) {
+  return action(Types.SET_OLD_PERIODS_ERROR, { error });
 }
 
 export function setPeriodBegin(start: Date) {
@@ -21,8 +21,8 @@ export function setPeriodBeginSuccess() {
   return action(Types.SET_BEGIN_SUCCESS);
 }
 
-export function setPeriodBeginError() {
-  return action(Types.SET_BEGIN_ERROR);
+export function setPeriodBeginError(error: string) {
+  return action(Types.SET_BEGIN_ERROR, { error });
 }
 export function setPeriodEnd(end: Date) {
   return action(Types.SET_END, { end });
@@ -31,8 +31,8 @@ export function setPeriodEndSuccess() {
   return action(Types.SET_END_SUCCESS);
 }
 
-export function setPeriodEndError() {
-  return action(Types.SET_END_ERROR);
+export function setPeriodEndError(error: string) {
+  return action(Types.SET_END_ERROR, { error });
 }
 
 export function setDayDisconfort(props: { date: Date; symptoms: string[] }) {
@@ -42,8 +42,8 @@ export function setDayDisconfortSuccess() {
   return action(Types.SET_DAY_DISCONFORT_SUCCESS);
 }
 
-export function setDayDisconfortError() {
-  return action(Types.SET_DAY_DISCONFORT_ERROR);
+export function setDayDisconfortError(error: string) {
+  return action(Types.SET_DAY_DISCONFORT_ERROR, { error });
 }
 export function clearState() {
   return action(Types.CLEAR);

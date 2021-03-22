@@ -23,9 +23,11 @@ const DisconfortPage = (props: any) => {
     if (period !== undefined) {
       const found = period.find((item) => item.id === id);
       if (found !== undefined) {
-        setDays(found?.daysDisconforts);
+        if (found.daysDisconforts !== undefined) {
+          setDays(found.daysDisconforts);
+        }
       }
-      console.log(found);
+      // console.log(found);
     }
   }, []);
 

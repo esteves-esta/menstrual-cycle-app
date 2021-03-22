@@ -1,10 +1,11 @@
-- [ ] internacionalização
+- [ x ] modal erro, sucesso mudar de tela, entrar na tela reset succeso
 - [ ] graficos
-- [ ] modal erro, sucesso mudar de tela, entrar na tela reset succeso
-- [ ] importar dados
-- [ ] exportar dados
+- [ ] internacionalização
 - [ ] gif do app
 - [ ] fazer readme do projeto
+
+- [ ] importar dados
+- [ ] exportar dados
 
 - [ x ] separar reducer em varias partes
 - [ x ] tela para adicionar começo e fim da menstruaçaõ

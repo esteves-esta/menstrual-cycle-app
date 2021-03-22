@@ -33,8 +33,8 @@ export function* setBegin({
 
     yield put(actions.setPeriodBeginSuccess());
   } catch (error) {
-    console.log('REALM DB ERROR');
-    console.log(error);
-    yield put(actions.setPeriodBeginError());
+    const message = error as Error;
+
+    yield put(actions.setPeriodBeginError(message.message));
   }
 }

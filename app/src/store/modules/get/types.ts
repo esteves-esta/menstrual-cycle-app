@@ -8,12 +8,13 @@ enum Types {
   DELETE_ALL_SUCCESS = 'PERIOD/DELETE_ALL_SUCCESS',
   DELETE_ALL = 'PERIOD/DELETE_ALL',
   DELETE_ALL_ERROR = 'PERIOD/DELETE_ALL_ERROR',
+  CLEAR = 'PERIOD/CLEAR',
 }
 
 export interface PeriodState {
   readonly loading: boolean;
   readonly period: Period[] | undefined;
-  readonly error: boolean;
+  readonly error: string | undefined;
   readonly success: boolean;
   readonly periodOngoing: Date | undefined;
   readonly averagePeriodDuration: number;

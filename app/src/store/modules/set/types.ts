@@ -15,7 +15,7 @@ enum Types {
 }
 export interface SetState {
   readonly loading: boolean;
-  readonly error: boolean;
+  readonly error: string | undefined;
   readonly success: boolean;
 }
 

@@ -21,8 +21,7 @@ export function* setEnd({ payload }: ActionType<typeof actions.setPeriodEnd>) {
 
     yield put(actions.setPeriodEndSuccess());
   } catch (error) {
-    console.log('REALM DB ERROR');
-    console.log(error);
-    yield put(actions.setPeriodEndError());
+    const message = error as Error;
+    yield put(actions.setPeriodEndError(message.message));
   }
 }

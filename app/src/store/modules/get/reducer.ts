@@ -3,7 +3,7 @@ import { PeriodAction } from './actions';
 
 export const initialState: PeriodState = {
   loading: true,
-  error: false,
+  error: undefined,
   success: false,
   period: undefined,
   averageCycleDuration: 0,
@@ -21,14 +21,14 @@ export default function auth(
     case Types.GET_PERIODS:
       return {
         ...state,
-        error: false,
+        error: undefined,
         loading: true,
         success: false,
       };
     case Types.GET_PERIODS_ERROR:
       return {
         ...state,
-        error: true,
+        error: action.payload.error,
         loading: false,
         success: false,
       };
@@ -36,19 +36,22 @@ export default function auth(
       return {
         ...state,
         period: action.payload.periods,
-        error: false,
+        error: undefined,
         loading: false,
         success: false,
         ...action.payload,
       };
     case Types.DELETE_ALL_ERROR:
-      return { ...state, loading: false, error: true };
+      return { ...state, loading: false, error: action.payload.error };
 
     case Types.DELETE_ALL_SUCCESS:
       return { ...initialState, loading: false, success: true };
 
     case Types.DELETE_ALL:
       return { ...state, loading: true };
+
+    case Types.CLEAR:
+      return { ...state, error: undefined, success: false, loading: false };
     default:
       return state;
   }

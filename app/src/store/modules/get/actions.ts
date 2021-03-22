@@ -18,12 +18,18 @@ export function getPeriodsSuccess(props: {
   return action(Types.GET_PERIODS_SUCCESS, props);
 }
 
-export function getPeriodsError() {
-  return action(Types.GET_PERIODS_ERROR);
+export function getPeriodsError(error: string) {
+  return action(Types.GET_PERIODS_ERROR, { error });
 }
-export function deleteError() {
-  return action(Types.DELETE_ALL_ERROR);
+
+export function deleteError(error: string) {
+  return action(Types.DELETE_ALL_ERROR, { error });
 }
+
+export function clear() {
+  return action(Types.CLEAR);
+}
+
 export function deleteAll() {
   return action(Types.DELETE_ALL);
 }
@@ -38,4 +44,5 @@ export type PeriodAction = ActionType<
   | typeof deleteAll
   | typeof deleteSuccess
   | typeof deleteError
+  | typeof clear
 >;

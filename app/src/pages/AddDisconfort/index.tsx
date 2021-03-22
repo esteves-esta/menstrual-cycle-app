@@ -11,33 +11,36 @@ import DatePicker from 'components/DatePicker';
 import Button from 'components/Button';
 import CheckItems from 'components/CheckItem';
 import { Header, Container, Overline } from 'styles/mainStyles';
+import Modal from 'components/ModalError';
+import ModalSuccess from 'components/ModalSuccess';
 
 const AddDisconfort: React.FC = () => {
   const { colors } = useTheme();
   const dispatch = useDispatch();
   const navigation = useNavigation();
 
-  const { loading, success } = useSelector((state) => state.setPeriod);
+  const { loading, success, error } = useSelector((state) => state.setPeriod);
   const { control, handleSubmit } = useForm<{
     date: Date;
     symptoms: string[];
   }>();
 
-  useEffect(() => {
-    if (success) {
-      navigation.goBack();
-      dispatch(getActions.getPeriods());
-      dispatch(actions.clearState());
-    }
-    // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, [success]);
-
   const onSubmit = (data: any) => {
-    console.log(data);
+    // console.log(data);
     dispatch(actions.setDayDisconfort(data));
   };
 
   const bgColor = Color(colors.primary).lighten(0.4).hex();
+
+  function closeModal() {
+    dispatch(actions.clearState());
+  }
+
+  function closeModalSuccess() {
+    navigation.goBack();
+    dispatch(getActions.getPeriods());
+    dispatch(actions.clearState());
+  }
 
   return (
     <Container bg={bgColor}>
@@ -78,6 +81,13 @@ const AddDisconfort: React.FC = () => {
         onPress={handleSubmit(onSubmit)}>
         Salvar
       </Button>
+
+      <Modal errorMessage={error} close={closeModalSuccess} />
+      <ModalSuccess
+        success={success}
+        message="Dados cadastrados com sucesso"
+        close={closeModal}
+      />
     </Container>
   );
 };

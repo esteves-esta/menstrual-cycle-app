@@ -84,8 +84,8 @@ export function* getAll() {
       }),
     );
   } catch (error) {
-    console.log('REALM DB ERROR');
-    console.log(error);
-    yield put(actions.getPeriodsError());
+    const message = error as Error;
+
+    yield put(actions.getPeriodsError(message.message));
   }
 }

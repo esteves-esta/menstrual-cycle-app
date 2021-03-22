@@ -15,8 +15,8 @@ export function* deleteAll() {
 
     yield put(actions.deleteSuccess());
   } catch (error) {
-    console.log('REALM DB ERROR');
-    console.log(error);
-    yield put(actions.deleteError());
+    const message = error as Error;
+
+    yield put(actions.deleteError(message.message));
   }
 }

@@ -35,8 +35,7 @@ export function* setDisconfort({
 
     yield put(actions.setDayDisconfortSuccess());
   } catch (error) {
-    console.log('REALM DB ERROR');
-    console.log(error);
-    yield put(actions.setDayDisconfortError());
+    const message = error as Error;
+    yield put(actions.setDayDisconfortError(message.message));
   }
 }

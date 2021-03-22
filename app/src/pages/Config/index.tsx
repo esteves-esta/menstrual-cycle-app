@@ -10,6 +10,8 @@ import Button from 'components/Button';
 import { Subtitle } from 'styles/mainStyles';
 import { Row, Center, AppColor } from './styles';
 import { getTheme } from 'styles/getTheme';
+import Modal from 'components/ModalError';
+import ModalSuccess from 'components/ModalSuccess';
 
 const Config: React.FC = () => {
   const dispatch = useDispatch();
@@ -18,13 +20,7 @@ const Config: React.FC = () => {
   const bgColor = Color(colors.primary).darken(0).hex();
   const fontColor = Color(colors.primary).lighten(0.5).hex();
 
-  const { success } = useSelector((state) => state.period);
-
-  useEffect(() => {
-    if (success) {
-      Alert.alert('Dados deletados com sucesso');
-    }
-  }, [success]);
+  const { success, error } = useSelector((state) => state.period);
 
   function chooseColor(color: string) {
     toggleTheme(color);
@@ -48,6 +44,10 @@ const Config: React.FC = () => {
     dispatch(getActions.deleteAll());
   }
 
+  function closeModal() {
+    dispatch(getActions.clear());
+  }
+
   return (
     <Center bg={bgColor}>
       <Row>
@@ -62,6 +62,13 @@ const Config: React.FC = () => {
       <Button mode="contained" onPress={deleteAll}>
         Deletar dados
       </Button>
+
+      <Modal errorMessage={error} close={closeModal} />
+      <ModalSuccess
+        success={success}
+        message="Dados deletados com sucesso"
+        close={closeModal}
+      />
     </Center>
   );
 };
