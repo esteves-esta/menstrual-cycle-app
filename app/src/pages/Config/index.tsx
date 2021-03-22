@@ -1,5 +1,5 @@
-import React, { useEffect } from 'react';
-import { Alert, ScrollView } from 'react-native';
+import React, { useState } from 'react';
+import { ScrollView } from 'react-native';
 import { useTheme, TouchableRipple } from 'react-native-paper';
 import Color from 'color';
 import ThemesKeys from 'constants/Theme';
@@ -12,11 +12,15 @@ import { Row, Center, AppColor } from './styles';
 import { getTheme } from 'styles/getTheme';
 import Modal from 'components/ModalError';
 import ModalSuccess from 'components/ModalSuccess';
+import ModalConfirm from 'components/ModalConfirm';
 
 const Config: React.FC = () => {
   const dispatch = useDispatch();
   const { colors } = useTheme();
   const { toggleTheme } = useMainContext();
+
+  const [modalConfirm, setModalConfirm] = useState(false);
+
   const bgColor = Color(colors.primary).darken(0).hex();
   const fontColor = Color(colors.primary).lighten(0.5).hex();
 
@@ -42,6 +46,15 @@ const Config: React.FC = () => {
 
   function deleteAll() {
     dispatch(getActions.deleteAll());
+    setModalConfirm(false);
+  }
+
+  function openModal() {
+    setModalConfirm(true);
+  }
+
+  function cancelDelete() {
+    setModalConfirm(false);
   }
 
   function closeModal() {
@@ -59,7 +72,7 @@ const Config: React.FC = () => {
 
       <Button mode="contained">Exportar dados XML</Button>
       <Button mode="contained">Importar dados XML</Button>
-      <Button mode="contained" onPress={deleteAll}>
+      <Button mode="contained" onPress={openModal}>
         Deletar dados
       </Button>
 
@@ -68,6 +81,12 @@ const Config: React.FC = () => {
         success={success}
         message="Dados deletados com sucesso"
         close={closeModal}
+      />
+      <ModalConfirm
+        visible={modalConfirm}
+        message="Deseja realmente deletar todos os seus dados? Essa ação não é reversivel."
+        cancel={cancelDelete}
+        confirm={deleteAll}
       />
     </Center>
   );
