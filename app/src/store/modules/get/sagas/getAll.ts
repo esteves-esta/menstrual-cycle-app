@@ -10,7 +10,7 @@ import { PeriodMarked } from 'models/PeriodMarked';
 export function* getAll() {
   try {
     const realm: Realm = yield getRealm();
-    let periods;
+    let allPeriods;
     let averagePeriodDuration = 0;
     let averageCycleDuration = 0;
     let nextPeriod: Date | undefined;
@@ -18,10 +18,11 @@ export function* getAll() {
     const periodsMarked: PeriodMarked = {};
 
     yield realm.write(() => {
-      periods = realm.objects<Period>('Period');
+      const periods = realm.objects<Period>('Period');
 
+      allPeriods = periods.toJSON();
       if (periods.length === 0) {
-        periods = undefined;
+        allPeriods = undefined;
       } else {
         averageCycleDuration = periods?.reduce(
           (accumulator, item) => accumulator + item.cycleDuration,
@@ -60,8 +61,9 @@ export function* getAll() {
                 startingDay:
                   date.getDate() === item.start.getDate() ? true : false,
                 endingDay: date.getDate() === item.end.getDate() ? true : false,
-                color: '#7B5DD6',
+                color: '#444',
                 textColor: '#fff',
+                id: item.id,
               };
             }
           }
@@ -70,11 +72,12 @@ export function* getAll() {
     });
 
     realm.close();
+
     yield put(
       actions.getPeriodsSuccess({
         averageCycleDuration,
         averagePeriodDuration,
-        periods,
+        periods: allPeriods,
         nextPeriod,
         periodsMarked,
         periodOngoing,

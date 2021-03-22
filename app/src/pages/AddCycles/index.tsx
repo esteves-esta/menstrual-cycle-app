@@ -39,13 +39,16 @@ const AddCycles: React.FC = () => {
   };
 
   const bgColor = Color(colors.primary).lighten(0.4).hex();
-  const fontColor = Color(colors.primary).lighten(0.02).hex();
 
   return (
     <Container bg={bgColor}>
       <Header>
-        <Overline fontColor={fontColor}>ADICIONAR ÚLTIMOS CICLOS</Overline>
-        <IconButton icon="x" color={fontColor} onPress={navigation.goBack} />
+        <Overline fontColor={colors.accent}>ADICIONAR ÚLTIMOS CICLOS</Overline>
+        <IconButton
+          icon="x"
+          color={colors.accent}
+          onPress={navigation.goBack}
+        />
       </Header>
 
       <Title fontColor={colors.accent}>Ultima menstruação</Title>

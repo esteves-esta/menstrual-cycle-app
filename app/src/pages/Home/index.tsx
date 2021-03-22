@@ -59,9 +59,6 @@ const Home: React.FC = () => {
 
   const daysOfOngoingPeriod = durationOfOngoingPeriod() / 10;
   const bgColor = Color(colors.primary).darken(daysOfOngoingPeriod).hex();
-  const fontColor = Color(colors.primary).lighten(0.5).hex();
-  const titleColor = Color(colors.primary).lighten(1).hex();
-
   function goToAddCycles() {
     navigation.navigate('AddCycles');
   }
@@ -69,11 +66,14 @@ const Home: React.FC = () => {
   function goToSetCycle() {
     navigation.navigate('SetCycle');
   }
+  function goToAddDisconfort() {
+    navigation.navigate('AddDisconfort');
+  }
 
   return (
     <ScrollView>
       <Center bg={bgColor}>
-        <Overline fontColor={fontColor}>Hoje é dia {today}</Overline>
+        <Overline fontColor={colors.font}>Hoje é dia {today}</Overline>
         {!loading && period === undefined && (
           <>
             <Button mode="contained" onPress={goToAddCycles}>
@@ -85,12 +85,12 @@ const Home: React.FC = () => {
 
         {!loading && periodOngoing !== undefined && (
           <>
-            <Title fontColor={titleColor}>
+            <Title fontColor={colors.title}>
               Esse é o {durationOfOngoingPeriod()}º da sua menstruação
             </Title>
 
-            <Button mode="contained" onPress={goToSetCycle}>
-              Adicionar sintomas
+            <Button mode="contained" onPress={goToAddDisconfort}>
+              Adicionar desconforto
             </Button>
             <Button mode="contained" onPress={goToSetCycle}>
               Finalizar
@@ -100,10 +100,10 @@ const Home: React.FC = () => {
 
         {!loading && nextPeriod !== undefined && (
           <>
-            <Title fontColor={titleColor}>Seu próximo ciclo</Title>
-            <Title fontColor={titleColor}>se inicia no </Title>
-            <Title fontColor={titleColor}>dia {nextCycleStart()}</Title>
-            <Subtitle fontColor={fontColor}>
+            <Title fontColor={colors.title}>Seu próximo ciclo</Title>
+            <Title fontColor={colors.title}>se inicia no </Title>
+            <Title fontColor={colors.title}>dia {nextCycleStart()}</Title>
+            <Subtitle fontColor={colors.font}>
               Em {daysTillPeriod()} dias
             </Subtitle>
             <Button mode="contained" onPress={goToSetCycle}>

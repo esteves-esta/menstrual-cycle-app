@@ -24,10 +24,10 @@ const CustomCalendar = (props: Props) => {
     todayTextColor: colors.accent,
     arrowColor: colors.primary,
     disabledArrowColor: colors.placeholder,
-    monthTextColor: colors.primary,
+    monthTextColor: colors.accent,
     textMonthFontWeight: '900',
     textDayHeaderFontWeight: '400',
-    textDayFontSize: 15,
+    textDayFontSize: 16,
     textMonthFontSize: 18,
     textDayHeaderFontSize: 16,
   };

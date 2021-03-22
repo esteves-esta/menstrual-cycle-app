@@ -11,6 +11,8 @@ import AddCycles from 'pages/AddCycles';
 import Analysis from 'pages/Analysis';
 import Config from 'pages/Config';
 import SetCycle from 'pages/SetCycle';
+import AddDisconfort from 'pages/AddDisconfort';
+import DisconfortPage from 'pages/Disconfort';
 
 const Tab = createBottomTabNavigator();
 const Stack = createStackNavigator();
@@ -76,6 +78,8 @@ export function MyStack() {
       <Stack.Screen name="Home" component={MyTabs} />
       <Stack.Screen name="AddCycles" component={AddCycles} />
       <Stack.Screen name="SetCycle" component={SetCycle} />
+      <Stack.Screen name="Disconfort" component={DisconfortPage} />
+      <Stack.Screen name="AddDisconfort" component={AddDisconfort} />
     </Stack.Navigator>
   );
 }

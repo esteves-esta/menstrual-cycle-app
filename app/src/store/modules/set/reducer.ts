@@ -75,21 +75,21 @@ export default function auth(
         loading: false,
         success: true,
       };
-    case Types.SET_DAY_SYMPTOMS:
+    case Types.SET_DAY_DISCONFORT:
       return {
         ...state,
         error: false,
         loading: true,
         success: false,
       };
-    case Types.SET_DAY_SYMPTOMS_ERROR:
+    case Types.SET_DAY_DISCONFORT_ERROR:
       return {
         ...state,
         error: true,
         loading: false,
         success: false,
       };
-    case Types.SET_DAY_SYMPTOMS_SUCCESS:
+    case Types.SET_DAY_DISCONFORT_SUCCESS:
       return {
         ...state,
         error: false,

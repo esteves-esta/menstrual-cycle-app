@@ -11,14 +11,19 @@ export default class PeriodSchema extends Realm.Object {
       days: { type: 'int', default: 0 },
       cycleDuration: { type: 'int', default: 0 },
       symptoms: 'string?',
+      daysDisconforts: 'Disconfort[]',
     },
   };
 }
 
-/* 
-- pegar a media de duracao de ciclos
-- ultimo period
-  - pegar comeco e adicionar duracao de 
-ciclo para pegar o proximo
-- sintomas
- */
+export class DisconfortSchema extends Realm.Object {
+  static schema = {
+    name: 'Disconfort',
+    primaryKey: 'id',
+    properties: {
+      id: { type: 'int', indexed: true },
+      date: 'date',
+      symptoms: 'string[]',
+    },
+  };
+}

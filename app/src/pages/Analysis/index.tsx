@@ -3,8 +3,9 @@ import { useTheme } from 'react-native-paper';
 import Color from 'color';
 
 import { useSelector } from 'store/index';
-import Button from 'components/Button';
-import { Title, Subtitle, Overline, Container } from 'styles/mainStyles';
+
+import { Title, Overline, Container } from 'styles/mainStyles';
+import { Card } from './styles';
 
 const Analysis: React.FC = () => {
   const { colors } = useTheme();
@@ -13,20 +14,24 @@ const Analysis: React.FC = () => {
   );
 
   const bgColor = Color(colors.primary).darken(0).hex();
-  const fontColor = Color(colors.primary).lighten(0.5).hex();
-  const titleColor = Color(colors.primary).lighten(1).hex();
 
   return (
     <Container bg={bgColor}>
-      <Overline fontColor={fontColor}>Média de duração do ciclo</Overline>
-      <Title fontColor={titleColor}>
-        {Math.round(averageCycleDuration)} dias
-      </Title>
+      <Card>
+        <Overline fontColor={colors.accent}>Média de duração do ciclo</Overline>
+        <Title fontColor={colors.accent}>
+          {Math.round(averageCycleDuration)} dias
+        </Title>
+      </Card>
 
-      <Overline fontColor={fontColor}>Média de duração da menstruação</Overline>
-      <Title fontColor={titleColor}>
-        {Math.round(averagePeriodDuration)} dias
-      </Title>
+      <Card>
+        <Overline fontColor={colors.accent}>
+          Média de duração da menstruação
+        </Overline>
+        <Title fontColor={colors.accent}>
+          {Math.round(averagePeriodDuration)} dias
+        </Title>
+      </Card>
     </Container>
   );
 };

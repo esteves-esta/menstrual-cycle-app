@@ -35,15 +35,15 @@ export function setPeriodEndError() {
   return action(Types.SET_END_ERROR);
 }
 
-export function setDaySymptoms() {
-  return action(Types.SET_DAY_SYMPTOMS);
+export function setDayDisconfort(props: { date: Date; symptoms: string[] }) {
+  return action(Types.SET_DAY_DISCONFORT, props);
 }
-export function setDaySymptomsSuccess() {
-  return action(Types.SET_DAY_SYMPTOMS_SUCCESS);
+export function setDayDisconfortSuccess() {
+  return action(Types.SET_DAY_DISCONFORT_SUCCESS);
 }
 
-export function setDaySymptomsError() {
-  return action(Types.SET_DAY_SYMPTOMS_ERROR);
+export function setDayDisconfortError() {
+  return action(Types.SET_DAY_DISCONFORT_ERROR);
 }
 export function clearState() {
   return action(Types.CLEAR);
@@ -59,8 +59,8 @@ export type SetAction = ActionType<
   | typeof setPeriodEnd
   | typeof setPeriodEndSuccess
   | typeof setPeriodEndError
-  | typeof setDaySymptoms
-  | typeof setDaySymptomsSuccess
-  | typeof setDaySymptomsError
+  | typeof setDayDisconfort
+  | typeof setDayDisconfortSuccess
+  | typeof setDayDisconfortError
   | typeof clearState
 >;

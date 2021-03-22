@@ -1,6 +1,5 @@
 import styled, { css } from 'styled-components/native';
 import { Title as PaperTitle, Subheading } from 'react-native-paper';
-import Color from 'color';
 
 interface ContainerProps {
   bg?: string;
@@ -61,4 +60,10 @@ export const Scrollview = styled.ScrollView.attrs({
   contentContainerStyle: { paddingBottom: 50 },
 })`
   flex: 1;
+`;
+
+export const Header = styled.View`
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
 `;

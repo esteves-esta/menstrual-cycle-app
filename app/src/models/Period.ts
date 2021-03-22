@@ -10,4 +10,14 @@ export default interface Period {
   cycleDuration: number;
 
   symptoms?: string;
+
+  daysDisconforts?: Disconfort[];
+}
+
+export interface Disconfort {
+  id: number;
+
+  date: Date;
+
+  symptoms: string[];
 }

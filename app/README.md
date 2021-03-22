@@ -1,18 +1,21 @@
-- [ x ] separar reducer em varias partes
+- [ ] internacionalização
+- [ ] graficos
 - [ ] modal erro, sucesso mudar de tela, entrar na tela reset succeso
-- [ x ] tela para adicionar começo e fim da menstruaçaõ
-- [ x ] formatar todos os dados do bancos para serem lidos pelo calendario
-- [ ] tela para adicionar sintomas
-- [ ] visualizar sinttomas
 - [ ] importar dados
 - [ ] exportar dados
-- [ ] tela home
+- [ ] gif do app
+- [ ] fazer readme do projeto
+
+- [ x ] separar reducer em varias partes
+- [ x ] tela para adicionar começo e fim da menstruaçaõ
+- [ x ] formatar todos os dados do bancos para serem lidos pelo calendario
+- [ x ] tela para adicionar sintomas
+- [ x ] visualizar sinttomas
+- [ x ] tela home
   - [ x ] salvar e fazer media da duração de todos os ciclos completos
   - [ x ] pegar data atual e usar addDays(today, mediaCiclos)
-  - [ ] pegar data de começo atual e pegar o intervalo entre o dia atual e o começo e adicionar numero na cor de fundo
+  - [ x ] pegar data de começo atual e pegar o intervalo entre o dia atual e o começo e adicionar numero na cor de fundo
   - [ x ] criar temas com cores diferentes
   - [ x ] tela de configurações
-  - [ ] graficos
   - [ x ] tela com média de dias da menstruação
   - [ x ] tela com media de duração
-  - [ ] internacionalização
