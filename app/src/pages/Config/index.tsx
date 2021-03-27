@@ -70,8 +70,8 @@ const Config: React.FC = () => {
         </ScrollView>
       </Row>
 
-      <Button mode="contained">Exportar dados XML</Button>
-      <Button mode="contained">Importar dados XML</Button>
+      {/* <Button mode="contained">Exportar dados CSV</Button>
+      <Button mode="contained">Importar dados CSV</Button> */}
       <Button mode="contained" onPress={openModal}>
         Deletar dados
       </Button>

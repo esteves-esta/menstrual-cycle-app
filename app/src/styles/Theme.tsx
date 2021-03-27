@@ -14,7 +14,7 @@ export const MobileDefaultTheme: ReactNativePaper.Theme = {
   colors: {
     ...PaperDefaultTheme.colors,
     ...NavigationDefaultTheme.colors,
-    white: '#fff',
+    white: '#ffffff',
     primary: '#7B5DD6',
     accent: '#502EB7',
     font: Color('#7B5DD6').lighten(0.5).hex(),
@@ -28,7 +28,7 @@ export const OrangeTheme: ReactNativePaper.Theme = {
   colors: {
     ...PaperDefaultTheme.colors,
     ...NavigationDefaultTheme.colors,
-    white: '#fff',
+    white: '#ffffff',
     primary: '#d6a65d',
     accent: '#b9821c',
     font: Color('#d6a65d').lighten(0.5).hex(),
@@ -42,7 +42,7 @@ export const GrayTheme: ReactNativePaper.Theme = {
   colors: {
     ...PaperDefaultTheme.colors,
     ...NavigationDefaultTheme.colors,
-    white: '#fff',
+    white: '#ffffff',
     primary: '#999999',
     accent: '#616161',
     font: Color('#999999').lighten(0.5).hex(),
@@ -56,7 +56,7 @@ export const GreenTheme: ReactNativePaper.Theme = {
   colors: {
     ...PaperDefaultTheme.colors,
     ...NavigationDefaultTheme.colors,
-    white: '#fff',
+    white: '#ffffff',
     primary: '#a7ca55',
     accent: '#83ac25',
     font: Color('#a7ca55').lighten(1).hex(),
@@ -69,7 +69,7 @@ export const RedTheme: ReactNativePaper.Theme = {
   colors: {
     ...PaperDefaultTheme.colors,
     ...NavigationDefaultTheme.colors,
-    white: '#fff',
+    white: '#ffffff',
     primary: '#c74e30',
     accent: '#dd3309',
     font: Color('#c74e30').lighten(0.7).hex(),
@@ -82,7 +82,7 @@ export const BlueTheme: ReactNativePaper.Theme = {
   colors: {
     ...PaperDefaultTheme.colors,
     ...NavigationDefaultTheme.colors,
-    white: '#fff',
+    white: '#ffffff',
     primary: '#49a9be',
     accent: '#1a8ea8',
     font: Color('#49a9be').lighten(0.5).hex(),
@@ -96,7 +96,7 @@ export const DarkOrangeTheme: ReactNativePaper.Theme = {
   colors: {
     ...PaperDefaultTheme.colors,
     ...NavigationDefaultTheme.colors,
-    white: '#fff',
+    white: '#ffffff',
     primary: '#db732d',
     accent: '#c4560d',
     font: Color('#db732d').lighten(0.7).hex(),

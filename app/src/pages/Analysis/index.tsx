@@ -18,14 +18,16 @@ const Analysis: React.FC = () => {
   return (
     <Container bg={bgColor}>
       <Card>
-        <Overline fontColor={colors.accent}>Média de duração do ciclo</Overline>
+        <Overline fontColor={colors.primary}>
+          Média de duração do ciclo
+        </Overline>
         <Title fontColor={colors.accent}>
           {Math.round(averageCycleDuration)} dias
         </Title>
       </Card>
 
       <Card>
-        <Overline fontColor={colors.accent}>
+        <Overline fontColor={colors.primary}>
           Média de duração da menstruação
         </Overline>
         <Title fontColor={colors.accent}>

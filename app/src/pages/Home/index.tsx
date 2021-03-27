@@ -86,7 +86,7 @@ const Home: React.FC = () => {
             <Button mode="contained" onPress={goToAddCycles}>
               Adicione últimos ciclos
             </Button>
-            <Button mode="contained">Importar dados XML</Button>
+            {/* <Button mode="contained">Importar dados CSV</Button> */}
           </>
         )}
 

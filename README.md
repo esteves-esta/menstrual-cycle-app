@@ -29,14 +29,16 @@ O aplicativo usa as seguinte bibliotecas:
 - [x] Visualizar ciclos passados por calendário
 - [x] Adicionar desconfortos
 - [x] Mudança de tema
-- [ ] Análise dos dados por gráficos
+- [x] Visualizar todos os ciclos como lista.
 - [x] Deletar dados do dispositivo
 
 ## Todo
 
-- [ ] internacionalização
+- [ ] Internacionalização
 - [ ] Exportar dados
 - [ ] Importar dados
+- [ ] Adicionar desconforto customizado
+- [ ] Notificações -> Escolher quanto dias antes do dia previsto ao início
 
 # Rodar no seu computador
 
