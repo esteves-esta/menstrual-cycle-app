@@ -1,3 +1,6 @@
+
+<img src="https://github.com/esteves-esta/menstrual-cycle-app/blob/main/images/ciclo-logo2.png" height="70"/>
+
 # Aplicativo Ciclo v1.0
 
 > Aplicativo react-native para registrar ciclos mentruais.
@@ -17,8 +20,6 @@ O aplicativo usa as seguinte bibliotecas:
 
 ## Índice
 
-- [Aplicativo Ciclo v1.0](#aplicativo-ciclo-v10)
-  - [Índice](#índice)
 - [Funcionalidades](#funcionalidades)
   - [Todo](#todo)
 - [Rodar no seu computador](#rodar-no-seu-computador)
