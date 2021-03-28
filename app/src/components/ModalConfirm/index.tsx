@@ -1,5 +1,6 @@
 import React from 'react';
 import { Portal, Dialog, Button, Paragraph } from 'react-native-paper';
+import Translations from 'translations/index';
 
 interface Props {
   visible: boolean;
@@ -12,14 +13,16 @@ const ModalConfirm = (props: Props) => {
   return (
     <Portal>
       <Dialog visible={props.visible} dismissable={false}>
-        <Dialog.Title>Deseja continuar?</Dialog.Title>
+        <Dialog.Title>{Translations.t('Common.continue')}</Dialog.Title>
         <Dialog.Content>
           <Paragraph>{props.message}</Paragraph>
 
           <Dialog.Actions>
-            <Button onPress={props.cancel}>cancelar</Button>
+            <Button onPress={props.cancel}>
+              {Translations.t('Common.button.cancel')}
+            </Button>
             <Button mode="outlined" onPress={props.confirm}>
-              confirmar
+              {Translations.t('Common.button.confirm')}
             </Button>
           </Dialog.Actions>
         </Dialog.Content>

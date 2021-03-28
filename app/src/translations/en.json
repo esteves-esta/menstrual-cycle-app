@@ -1,0 +1,86 @@
+{
+  "AddCycles": {
+    "title": "ADD LAST CYCLES ",
+    "lastPeriod": "Last menstruation",
+    "penultimatePeriod": "Penultimate menstruation",
+    "firstDay": "First day",
+    "lastDay": "Last day"
+  },
+  "SetCycle": {
+    "date": "Date of %{dateType}",
+    "description": "If your period is not %{type} today, enter the correct date in the field below:"
+  },
+  "Discomfort": {
+    "title": "Discomfort"
+  },
+  "Calendar": {
+    "calendar": "Calendar",
+    "list": "List"
+  },
+  "AddDiscomfort": {
+    "title": "ADD DISCOMFORT",
+    "date": "Date of DISCOMFORT",
+    "selectDescription": "Select one of the discomforts below",
+    "defaultTypes": {
+      "backPain": "Back pains",
+      "cramps": "Cramps",
+      "breastPain": "Breast pain",
+      "headache": "Headache"
+    }
+  },
+  "Home": {
+    "today": "Today is %{today}",
+    "nextPeriodPredication": "Your next cycle starts on the day %{day}",
+    "nextPeriodDuration": {
+      "one": "In 1 day",
+      "other": "In %{count} days",
+      "zero": ""
+    },
+    "ongoingPeriod": "This is the %{duration}º of yout period",
+    "addCyclesButton": "Add last cycles",
+    "endPeriodButton": "Finish",
+    "startPeriodButton": "Begin",
+    "addDiscomfortButton": "Add discomfort"
+  },
+  "Date": {
+    "format": "MMMM dd",
+    "selectDate": "Select a date below:"
+  },
+  "Analysis": {
+    "averagePeriod": "Average cycle length",
+    "averageCycle": "Average menstruation duration"
+  },
+  "Error": {
+    "title": "An error has occurred",
+    "description": "An error occurred while performing the last action.",
+    "errorOccurred": "Error occurred:"
+  },
+  "Common": {
+    "start": "start",
+    "end": "end",
+    "begin": "begin",
+    "finish": "finish",
+    "theme": "Theme",
+    "continue": "Do you wish to continue?",
+    "tryAgain": "Please try again.",
+    "button": {
+      "save": "Save",
+      "confirm": "Confirm",
+      "cancel": "Cancel",
+      "delete": "Delete data",
+      "import": "Import CSV data",
+      "export": "Export CSV data"
+    },
+    "days": {
+      "one": "1 day",
+      "other": "%{count} days",
+      "zero": ""
+    },
+    "successMessage": "Data successfully registered",
+    "success": "Success",
+    "delete": {
+      "success": "Data successfully deleted",
+      "warn": "Do you really want to delete all your data? This action is not reversible."
+    }
+  }
+}

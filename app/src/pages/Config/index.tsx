@@ -13,6 +13,7 @@ import { getTheme } from 'styles/getTheme';
 import Modal from 'components/ModalError';
 import ModalSuccess from 'components/ModalSuccess';
 import ModalConfirm from 'components/ModalConfirm';
+import Translations from 'translations/index';
 
 const Config: React.FC = () => {
   const dispatch = useDispatch();
@@ -39,7 +40,7 @@ const Config: React.FC = () => {
     const themes = Object.keys(ThemesKeys);
     return themes.map((item) => (
       <TouchableRipple borderless onPress={() => chooseColor(item)} key={item}>
-        <AppColor bg={() => getColorPrimary(item)} />
+        <AppColor bg={getColorPrimary(item)} />
       </TouchableRipple>
     ));
   }
@@ -64,27 +65,29 @@ const Config: React.FC = () => {
   return (
     <Center bg={bgColor}>
       <Row>
-        <Subtitle fontColor={fontColor}>Tema</Subtitle>
+        <Subtitle fontColor={fontColor}>
+          {Translations.t('Common.theme')}
+        </Subtitle>
         <ScrollView horizontal>
           <Row>{renderColor()}</Row>
         </ScrollView>
       </Row>
 
-      {/* <Button mode="contained">Exportar dados CSV</Button>
-      <Button mode="contained">Importar dados CSV</Button> */}
+      {/* <Button mode="contained">{Translations.t('Common.button.import')}</Button>
+      <Button mode="contained">{Translations.t('Common.button.export')}</Button> */}
       <Button mode="contained" onPress={openModal}>
-        Deletar dados
+        {Translations.t('Common.button.delete')}
       </Button>
 
       <Modal errorMessage={error} close={closeModal} />
       <ModalSuccess
         success={success}
-        message="Dados deletados com sucesso"
+        message={Translations.t('Common.delete.success')}
         close={closeModal}
       />
       <ModalConfirm
         visible={modalConfirm}
-        message="Deseja realmente deletar todos os seus dados? Essa ação não é reversivel."
+        message={Translations.t('Common.delete.warn')}
         cancel={cancelDelete}
         confirm={deleteAll}
       />

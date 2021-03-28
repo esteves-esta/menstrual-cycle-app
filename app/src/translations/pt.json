@@ -1,0 +1,86 @@
+{
+  "AddCycles": {
+    "title": "ADICIONAR ÚLTIMOS CICLOS",
+    "lastPeriod": "Ultima menstruação",
+    "penultimatePeriod": "Penultima menstruação",
+    "firstDay": "Primeiro dia",
+    "lastDay": "Ultimo dia"
+  },
+  "SetCycle": {
+    "date": "Data de %{dateType}",
+    "description": "Se a sua menstruação não %{type} hoje insira a data correta no campo abaixo:"
+  },
+  "Discomfort": {
+    "title": "Desconfortos"
+  },
+  "Calendar": {
+    "calendar": "Calendário",
+    "list": "Lista"
+  },
+  "AddDiscomfort": {
+    "title": "ADICIONAR DESCONFORTO",
+    "date": "Data do desconforto",
+    "selectDescription": "Selecione um dos desconfortos abaixo",
+    "defaultTypes": {
+      "backPain": "Dores nas costas",
+      "cramps": "Cólicas",
+      "breastPain": "Dores nos seios",
+      "headache": "Dores de cabeça"
+    }
+  },
+  "Home": {
+    "today": "Hoje é dia %{today}",
+    "nextPeriodPredication": "Seu próximo ciclo se inicia no dia %{day}",
+    "nextPeriodDuration": {
+      "one": "Em 1 dia",
+      "other": "Em %{count} dias",
+      "zero": ""
+    },
+    "ongoingPeriod": "Esse é o %{duration}º da sua menstruação",
+    "addCyclesButton": "Adicione últimos ciclos",
+    "endPeriodButton": "Finalizar",
+    "startPeriodButton": "Começar",
+    "addDiscomfortButton": "Adicionar desconforto"
+  },
+  "Date": {
+    "format": "dd 'de' MMMM",
+    "selectDate": "Selecione uma data abaixo:"
+  },
+  "Analysis": {
+    "averagePeriod": "Média de duração do ciclo",
+    "averageCycle": "Média de duração da menstruação"
+  },
+  "Error": {
+    "title": "Ocorreu um erro",
+    "description": "Ocoreu um erro durante a realização da ultima ação.",
+    "errorOccurred": "Erro ocorrido:"
+  },
+  "Common": {
+    "start": "início",
+    "end": "fim",
+    "begin": "começou",
+    "finish": "terminou",
+    "theme": "Tema",
+    "continue": "Deseja continuar?",
+    "tryAgain": " Por favor tente novamente.",
+    "button": {
+      "save": "Salvar",
+      "confirm": "Confirmar",
+      "cancel": "Cancelar",
+      "delete": "Deletar dados",
+      "import": "Importar dados CSV",
+      "export": "Exportar dados CSV"
+    },
+    "days": {
+      "one": "1 dia",
+      "other": "%{count} dias",
+      "zero": ""
+    },
+    "successMessage": "Dados cadastrados com sucesso",
+    "success": "Sucesso",
+    "delete": {
+      "success": "Dados deletados com sucesso",
+      "warn": "Deseja realmente deletar todos os seus dados? Essa ação não é reversivel."
+    }
+  }
+}

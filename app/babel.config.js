@@ -27,6 +27,7 @@ module.exports = {
           models: ['./src/models'],
           helpers: ['./src/helpers'],
           context: ['./src/context'],
+          translations: ['./src/translations'],
         },
       },
     ],

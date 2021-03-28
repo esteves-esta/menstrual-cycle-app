@@ -3,7 +3,7 @@ import React, { useEffect } from 'react';
 import { useNavigation } from '@react-navigation/native';
 import { useTheme } from 'react-native-paper';
 import { format, differenceInCalendarDays } from 'date-fns';
-import { ptBR } from 'date-fns/locale';
+
 import Color from 'color';
 import { getUTCDate } from 'helpers/index';
 import { useDispatch, useSelector } from 'store/index';
@@ -12,6 +12,7 @@ import Button from 'components/Button';
 import Modal from 'components/ModalError';
 import { Title, Subtitle, Overline } from 'styles/mainStyles';
 import { Center, ScrollView } from './styles';
+import Translations, { dateLocalize } from 'translations/index';
 
 const Home: React.FC = () => {
   const { colors } = useTheme();
@@ -25,15 +26,15 @@ const Home: React.FC = () => {
     dispatch(actions.getPeriods());
   }, []);
 
-  const today = format(new Date(), "dd 'de' MMMM", {
-    locale: ptBR,
+  const today = format(new Date(), Translations.t('Date.format'), {
+    locale: dateLocalize(),
   });
 
   const nextCycleStart = () => {
     if (nextPeriod) {
       const date = getUTCDate(nextPeriod);
-      return format(date, "dd 'de' MMMM", {
-        locale: ptBR,
+      return format(date, Translations.t('Date.format'), {
+        locale: dateLocalize(),
       });
     } else {
       return '';
@@ -80,41 +81,51 @@ const Home: React.FC = () => {
   return (
     <ScrollView>
       <Center bg={bgColor}>
-        <Overline fontColor={colors.font}>Hoje é dia {today}</Overline>
+        <Overline fontColor={colors.font}>
+          {Translations.t('Home.today', { today })}
+        </Overline>
+
         {!loading && period === undefined && (
           <>
             <Button mode="contained" onPress={goToAddCycles}>
-              Adicione últimos ciclos
+              {Translations.t('Home.addCyclesButton')}
             </Button>
-            {/* <Button mode="contained">Importar dados CSV</Button> */}
+            {/* <Button mode="contained">{Translations.t('Common.button.import')}</Button> */}
           </>
         )}
 
         {!loading && periodOngoing !== undefined && (
           <>
             <Title fontColor={colors.title}>
-              Esse é o {durationOfOngoingPeriod()}º da sua menstruação
+              {Translations.t('Home.ongoingPeriod', {
+                duration: durationOfOngoingPeriod(),
+              })}
             </Title>
 
             <Button mode="contained" onPress={goToAddDisconfort}>
-              Adicionar desconforto
+              {Translations.t('Home.addDiscomfortButton')}
             </Button>
             <Button mode="contained" onPress={goToSetCycle}>
-              Finalizar
+              {Translations.t('Home.endPeriodButton')}
             </Button>
           </>
         )}
 
         {!loading && nextPeriod !== undefined && (
           <>
-            <Title fontColor={colors.title}>Seu próximo ciclo</Title>
-            <Title fontColor={colors.title}>se inicia no </Title>
-            <Title fontColor={colors.title}>dia {nextCycleStart()}</Title>
+            <Title fontColor={colors.title}>
+              {Translations.t('Home.nextPeriodPredication', {
+                day: nextCycleStart(),
+              })}
+            </Title>
+
             <Subtitle fontColor={colors.font}>
-              Em {daysTillPeriod()} dias
+              {Translations.t('Home.nextPeriodDuration', {
+                count: daysTillPeriod(),
+              })}
             </Subtitle>
             <Button mode="contained" onPress={goToSetCycle}>
-              Começar
+              {Translations.t('Home.startPeriodButton')}
             </Button>
           </>
         )}

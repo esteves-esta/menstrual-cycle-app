@@ -9,6 +9,7 @@ import { format } from 'date-fns';
 import { Overline, Container, Header, Scrollview } from 'styles/mainStyles';
 import { Disconfort } from 'models/Period';
 import { DayContainer, Day, Row } from './styles';
+import Translations from 'translations/index';
 
 const DisconfortPage = (props: any) => {
   const id = props?.route?.params?.id;
@@ -40,7 +41,9 @@ const DisconfortPage = (props: any) => {
     <Container bg={bgColor}>
       <Scrollview>
         <Header>
-          <Overline fontColor={colors.accent}>Desconfortos</Overline>
+          <Overline fontColor={colors.accent}>
+            {Translations.t('Discomfort.title')}
+          </Overline>
           <IconButton
             icon="x"
             color={colors.accent}

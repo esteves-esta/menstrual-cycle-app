@@ -9,6 +9,7 @@ import Calendar from 'components/CustomCalendar';
 import { Container, Overline } from 'styles/mainStyles';
 import { Header, Modal, Input, InputText, Label } from './styles';
 import { View } from 'react-native';
+import Translations from 'translations/index';
 
 interface Props {
   label: string;
@@ -48,12 +49,16 @@ const DatePicker = (props: Props) => {
       <Portal>
         <Modal visible={visible} dismissable={false}>
           <Header>
-            <Button onPress={onDismiss}>Cancelar</Button>
-            <Button onPress={() => save(onChange)}>Salvar</Button>
+            <Button onPress={onDismiss}>
+              {Translations.t('Common.button.cancel')}
+            </Button>
+            <Button onPress={() => save(onChange)}>
+              {Translations.t('Common.button.save')}
+            </Button>
           </Header>
           <Container bg={bgColor}>
             <Overline fontColor={colors.accent}>
-              Selecione uma data abaixo:
+              {Translations.t('Date.selectDate')}
             </Overline>
             <Calendar
               current={props.defaultValue}

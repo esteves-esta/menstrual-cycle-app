@@ -1,6 +1,7 @@
 import React from 'react';
 import { useTheme } from 'react-native-paper';
 import Color from 'color';
+import Translations from 'translations/index';
 
 import { useSelector } from 'store/index';
 
@@ -19,19 +20,23 @@ const Analysis: React.FC = () => {
     <Container bg={bgColor}>
       <Card>
         <Overline fontColor={colors.primary}>
-          Média de duração do ciclo
+          {Translations.t('Analysis.averageCycle')}
         </Overline>
         <Title fontColor={colors.accent}>
-          {Math.round(averageCycleDuration)} dias
+          {Translations.t('Common.days', {
+            count: Math.round(averageCycleDuration),
+          })}
         </Title>
       </Card>
 
       <Card>
         <Overline fontColor={colors.primary}>
-          Média de duração da menstruação
+          {Translations.t('Analysis.averagePeriod')}
         </Overline>
         <Title fontColor={colors.accent}>
-          {Math.round(averagePeriodDuration)} dias
+          {Translations.t('Common.days', {
+            count: Math.round(averagePeriodDuration),
+          })}
         </Title>
       </Card>
     </Container>

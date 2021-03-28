@@ -13,6 +13,7 @@ import { Container, Overline, Row } from 'styles/mainStyles';
 import { Header } from './styles';
 import Modal from 'components/ModalError';
 import ModalSuccess from 'components/ModalSuccess';
+import Translations from 'translations/index';
 
 const SetCycle: React.FC = () => {
   const { colors } = useTheme();
@@ -49,7 +50,9 @@ const SetCycle: React.FC = () => {
     <Container bg={bgColor}>
       <Header>
         <Overline fontColor={colors.accent}>
-          {periodOngoing === undefined ? 'Começo' : 'Fim'}
+          {Translations.t(
+            `Common.${periodOngoing === undefined ? 'start' : 'end'}`,
+          )}
         </Overline>
         <IconButton
           icon="x"
@@ -59,14 +62,20 @@ const SetCycle: React.FC = () => {
       </Header>
 
       <Paragraph>
-        Se a sua menstruação não{' '}
-        {periodOngoing === undefined ? 'começou' : 'terminou'} hoje insira a
-        data correta no campo abaixo:
+        {Translations.t('SetCycle.description', {
+          type: Translations.t(
+            `Common.${periodOngoing === undefined ? 'begin' : 'finish'}`,
+          ),
+        })}
       </Paragraph>
       <Row>
         <DatePicker
           control={control}
-          label={`Data de ${periodOngoing === undefined ? 'inicio' : 'fim'}`}
+          label={Translations.t('SetCycle.date', {
+            dateType: Translations.t(
+              `Common.${periodOngoing === undefined ? 'start' : 'end'}`,
+            ),
+          })}
           name="start"
           defaultValue={today}
         />
@@ -76,13 +85,13 @@ const SetCycle: React.FC = () => {
         loading={loading}
         mode="contained"
         onPress={handleSubmit(onSubmit)}>
-        Salvar
+        {Translations.t('Common.button.save')}
       </Button>
 
       <Modal errorMessage={error} close={closeModalSuccess} />
       <ModalSuccess
         success={success}
-        message="Dados cadastrados com sucesso"
+        message={Translations.t('Common.successMessage')}
         close={closeModal}
       />
     </Container>

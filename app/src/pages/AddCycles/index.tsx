@@ -15,6 +15,7 @@ import { Header, Title } from './styles';
 import FormValues from 'models/OldPeriods';
 import Modal from 'components/ModalError';
 import ModalSuccess from 'components/ModalSuccess';
+import Translations from 'translations/index';
 
 const AddCycles: React.FC = () => {
   const { colors } = useTheme();
@@ -46,7 +47,9 @@ const AddCycles: React.FC = () => {
   return (
     <Container bg={bgColor}>
       <Header>
-        <Overline fontColor={colors.accent}>ADICIONAR ÚLTIMOS CICLOS</Overline>
+        <Overline fontColor={colors.accent}>
+          {Translations.t('AddCycles.title')}
+        </Overline>
         <IconButton
           icon="x"
           color={colors.accent}
@@ -54,33 +57,37 @@ const AddCycles: React.FC = () => {
         />
       </Header>
 
-      <Title fontColor={colors.accent}>Ultima menstruação</Title>
+      <Title fontColor={colors.accent}>
+        {Translations.t('AddCycles.lastPeriod')}
+      </Title>
       <Row>
         <DatePicker
           control={control}
-          label="Primeiro dia"
+          label={Translations.t('AddCycles.firstDay')}
           name="last.start"
           defaultValue={subMonths(today, 1)}
         />
         <DatePicker
           control={control}
-          label="Ultimo dia"
+          label={Translations.t('AddCycles.lastDay')}
           name="last.end"
           defaultValue={subMonths(today, 1)}
         />
       </Row>
 
-      <Title fontColor={colors.accent}>Penultima menstruação</Title>
+      <Title fontColor={colors.accent}>
+        {Translations.t('AddCycles.penultimatePeriod')}
+      </Title>
       <Row>
         <DatePicker
           control={control}
-          label="Primeiro dia"
+          label={Translations.t('AddCycles.firstDay')}
           name="secondlastPeriod.start"
           defaultValue={subMonths(today, 2)}
         />
         <DatePicker
           control={control}
-          label="Ultimo dia"
+          label={Translations.t('AddCycles.lastDay')}
           name="secondlastPeriod.end"
           defaultValue={subMonths(today, 2)}
         />
@@ -96,7 +103,7 @@ const AddCycles: React.FC = () => {
       <Modal errorMessage={error} close={closeModalSuccess} />
       <ModalSuccess
         success={success}
-        message="Dados cadastrados com sucesso"
+        message={Translations.t('Common.successMessage')}
         close={closeModal}
       />
     </Container>

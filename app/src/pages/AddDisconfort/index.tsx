@@ -2,6 +2,7 @@ import React, { useEffect } from 'react';
 import { useNavigation } from '@react-navigation/native';
 import { useTheme, IconButton } from 'react-native-paper';
 import { useForm } from 'react-hook-form';
+import Translations from 'translations/index';
 
 import Color from 'color';
 import { useDispatch, useSelector } from 'store/index';
@@ -45,7 +46,9 @@ const AddDisconfort: React.FC = () => {
   return (
     <Container bg={bgColor}>
       <Header>
-        <Overline fontColor={colors.accent}>ADICIONAR DESCONFORTO</Overline>
+        <Overline fontColor={colors.accent}>
+          {Translations.t('AddDiscomfort.title')}
+        </Overline>
         <IconButton
           icon="x"
           color={colors.accent}
@@ -55,7 +58,7 @@ const AddDisconfort: React.FC = () => {
 
       <DatePicker
         control={control}
-        label="Data do desconforto"
+        label={Translations.t('AddDiscomfort.date')}
         name="date"
         defaultValue={new Date()}
         required={true}
@@ -63,15 +66,15 @@ const AddDisconfort: React.FC = () => {
 
       <CheckItems
         control={control}
-        label="Selecione um dos desconfortos abaixo"
+        label={Translations.t('AddDiscomfort.selectDescription')}
         name="symptoms"
         defaultValue=""
         required={true}
         values={[
-          'Dores nas costas',
-          'Cólicas',
-          'Dores nos seios',
-          'Dores de cabeça',
+          Translations.t('AddDiscomfort.defaultTypes.backPain'),
+          Translations.t('AddDiscomfort.defaultTypes.cramps'),
+          Translations.t('AddDiscomfort.defaultTypes.breastPain'),
+          Translations.t('AddDiscomfort.defaultTypes.headache'),
         ]}
       />
 
@@ -79,13 +82,13 @@ const AddDisconfort: React.FC = () => {
         loading={loading}
         mode="contained"
         onPress={handleSubmit(onSubmit)}>
-        Salvar
+        {Translations.t('Common.button.save')}
       </Button>
 
       <Modal errorMessage={error} close={closeModalSuccess} />
       <ModalSuccess
         success={success}
-        message="Dados cadastrados com sucesso"
+        message={Translations.t('Common.successMessage')}
         close={closeModal}
       />
     </Container>

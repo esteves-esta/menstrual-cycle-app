@@ -5,7 +5,7 @@ import Calendar from 'components/CustomCalendar';
 import Color from 'color';
 import { useSelector } from 'store/index';
 import { format, differenceInCalendarDays } from 'date-fns';
-import { ptBR } from 'date-fns/locale';
+import Translations, { dateLocalize } from 'translations/index';
 
 import CalendarFooter from 'components/CalendarFooter';
 import { Container, Row as SpaceRow } from 'styles/mainStyles';
@@ -43,7 +43,7 @@ const Calender: React.FC = () => {
   function formatDate(date: Date) {
     if (date !== undefined) {
       return format(date, 'LLL dd', {
-        locale: ptBR,
+        locale: dateLocalize(),
       });
     } else {
       return '';
@@ -64,7 +64,7 @@ const Calender: React.FC = () => {
         <Container>
           <Row>
             <Title fontColor={fontColor}>
-              {mode === 'calendar' ? 'CALENDÁRIO' : 'LISTA'}
+              {Translations.t(`Calendar.${mode}`)}
             </Title>
             <IconButton
               icon="repeat"
@@ -93,7 +93,11 @@ const Calender: React.FC = () => {
                 period.map((item) => (
                   <SpaceRow key={item.id}>
                     <Text>{getDates(item)}</Text>
-                    <Text>{getDuration(item)} dias</Text>
+                    <Text>
+                      {Translations.t('Common.days', {
+                        count: getDuration(item),
+                      })}
+                    </Text>
                   </SpaceRow>
                 ))}
             </ListContainer>

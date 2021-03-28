@@ -1,5 +1,6 @@
 import React from 'react';
 import { Portal, Dialog, Button, Paragraph } from 'react-native-paper';
+import Translations from 'translations/index';
 
 interface Props {
   success: boolean;
@@ -11,7 +12,7 @@ const ModalSuccess = (props: Props) => {
   return (
     <Portal>
       <Dialog visible={props.success} onDismiss={props.close}>
-        <Dialog.Title>Sucesso</Dialog.Title>
+        <Dialog.Title>{Translations.t('Common.success')}</Dialog.Title>
         <Dialog.Content>
           <Paragraph>{props.message}</Paragraph>
 
