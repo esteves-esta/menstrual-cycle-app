@@ -36,10 +36,11 @@ O aplicativo usa as seguinte bibliotecas:
  
 ## Todo
 
-- [ ] Exportar dados
-- [ ] Importar dados
+- [ ] Testes
 - [ ] Adicionar desconforto customizado
 - [ ] Notificações -> Escolher quanto dias antes do dia previsto ao início
+- [ ] Exportar dados
+- [ ] Importar dados
 
 # Rodar no seu computador
 
