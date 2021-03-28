@@ -32,10 +32,10 @@ O aplicativo usa as seguinte bibliotecas:
 - [x] Mudança de tema
 - [x] Visualizar todos os ciclos como lista.
 - [x] Deletar dados do dispositivo
-
+- [x] Internacionalização
+ 
 ## Todo
 
-- [ ] Internacionalização
 - [ ] Exportar dados
 - [ ] Importar dados
 - [ ] Adicionar desconforto customizado
