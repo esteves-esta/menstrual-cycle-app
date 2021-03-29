@@ -32,14 +32,15 @@ O aplicativo usa as seguinte bibliotecas:
 - [x] Mudança de tema
 - [x] Visualizar todos os ciclos como lista.
 - [x] Deletar dados do dispositivo
-
+- [x] Internacionalização
+ 
 ## Todo
 
-- [ ] Internacionalização
-- [ ] Exportar dados
-- [ ] Importar dados
+- [ ] Testes
 - [ ] Adicionar desconforto customizado
 - [ ] Notificações -> Escolher quanto dias antes do dia previsto ao início
+- [ ] Exportar dados
+- [ ] Importar dados
 
 # Rodar no seu computador
 
