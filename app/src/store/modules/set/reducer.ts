@@ -20,6 +20,7 @@ export default function auth(
         success: false,
       };
     case Types.SET_OLD_PERIODS_ERROR:
+      console.log('erro');
       return {
         ...state,
         error: action.payload.error,
@@ -27,6 +28,7 @@ export default function auth(
         success: false,
       };
     case Types.SET_OLD_PERIODS_SUCCESS:
+      console.log('sucesso');
       return {
         ...state,
         error: undefined,

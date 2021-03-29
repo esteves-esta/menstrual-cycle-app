@@ -53,14 +53,22 @@ const Home: React.FC = () => {
   const durationOfOngoingPeriod = () => {
     if (periodOngoing) {
       const date = getUTCDate(periodOngoing);
-      return differenceInCalendarDays(new Date(), date);
+      const duration = differenceInCalendarDays(new Date(), date);
+      return duration + 1;
     } else {
       return 0;
     }
   };
 
-  const daysOfOngoingPeriod = durationOfOngoingPeriod() / 10;
-  const bgColor = Color(colors.primary).darken(daysOfOngoingPeriod).hex();
+  const daysOfOngoingPeriod = () => {
+    const days = durationOfOngoingPeriod();
+    if (days < 0) {
+      return 0.1;
+    } else {
+      return days / 10;
+    }
+  };
+  const bgColor = Color(colors.primary).darken(daysOfOngoingPeriod()).hex();
 
   function goToAddCycles() {
     navigation.navigate('AddCycles');

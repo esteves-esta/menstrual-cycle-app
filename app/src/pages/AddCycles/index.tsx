@@ -23,7 +23,7 @@ const AddCycles: React.FC = () => {
   const navigation = useNavigation();
   const today = new Date();
 
-  const { loading, success, error } = useSelector((state) => state.period);
+  const { loading, success, error } = useSelector((state) => state.setPeriod);
   const { control, handleSubmit } = useForm<FormValues>();
 
   const onSubmit = (data: FormValues) => {
@@ -100,11 +100,11 @@ const AddCycles: React.FC = () => {
         Salvar
       </Button>
 
-      <Modal errorMessage={error} close={closeModalSuccess} />
+      <Modal errorMessage={error} close={closeModal} />
       <ModalSuccess
         success={success}
         message={Translations.t('Common.successMessage')}
-        close={closeModal}
+        close={closeModalSuccess}
       />
     </Container>
   );

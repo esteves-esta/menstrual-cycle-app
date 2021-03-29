@@ -88,11 +88,11 @@ const SetCycle: React.FC = () => {
         {Translations.t('Common.button.save')}
       </Button>
 
-      <Modal errorMessage={error} close={closeModalSuccess} />
+      <Modal errorMessage={error} close={closeModal} />
       <ModalSuccess
         success={success}
         message={Translations.t('Common.successMessage')}
-        close={closeModal}
+        close={closeModalSuccess}
       />
     </Container>
   );

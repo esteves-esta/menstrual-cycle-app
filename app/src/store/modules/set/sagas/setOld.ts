@@ -43,6 +43,7 @@ export function* setOldPeriod({
     });
 
     realm.close();
+    console.log('asdf');
     yield put(actions.setOldPeriodsSuccess());
   } catch (error) {
     const message = error as Error;

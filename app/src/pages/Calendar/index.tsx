@@ -37,16 +37,28 @@ const Calender: React.FC = () => {
   };
 
   function getDates(item: Period) {
-    return `${formatDate(item.start)} - ${formatDate(item?.end)}`;
+    try {
+      if (item.end !== null) {
+        return `${formatDate(item.start)} - ${formatDate(item?.end)}`;
+      } else {
+        return `${formatDate(item.start)} -`;
+      }
+    } catch (e) {
+      return '';
+    }
   }
 
   function formatDate(date: Date) {
-    if (date !== undefined) {
-      return format(date, 'LLL dd', {
-        locale: dateLocalize(),
-      });
-    } else {
-      return '';
+    try {
+      if (date) {
+        return format(date, 'LLL dd', {
+          locale: dateLocalize(),
+        });
+      } else {
+        return 0;
+      }
+    } catch (e) {
+      return 0;
     }
   }
 
